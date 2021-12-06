@@ -16,14 +16,17 @@
     </div>
     
     <script>
-    $('#star').raty({
-      size     : 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      scoreName: 'book[rate]',
-      half: true,
-    });
+    $(document).on('turbolinks:load', function() {
+      $('#star').empty();
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'book[rate]',
+        half: true,
+      });
+    })
     </script>
   <% else %>
     <%= render "static_rate", book: book %>
